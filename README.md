@@ -1,0 +1,2 @@
+# OrderingPlatform
+Angular + ExpressJS project
