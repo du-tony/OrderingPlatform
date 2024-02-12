@@ -1,0 +1,43 @@
+<form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+    <div>
+        <label for="username">Username</label>
+        <input type="text" formControlName="username" id="username">
+    </div>
+    <div>
+        <label for="email">Email</label>
+        <input type="email" formControlName="email" id="email">
+        <div
+            *ngIf="registerForm.controls['email'].invalid && registerForm.controls['email'].touched">
+            Invalid email address.
+        </div>
+    </div>
+    <div>
+        <label for="password">Password</label>
+        <input type="password" formControlName="password" id="password">
+        <div
+            *ngIf="registerForm.controls['password'].invalid && registerForm.controls['password'].touched">
+            Password is required (min 6 characters).
+        </div>
+    </div>
+    <!-- ... other form fields ... -->
+    <div>
+        <label for="clinicName">Clinic Name</label>
+        <input type="text" formControlName="clinicName" id="clinicName">
+    </div>
+    <div>
+        <label for="phone">Phone</label>
+        <input type="tel" formControlName="phone" id="phone">
+    </div>
+    <div>
+        <label for="gender">Gender</label>
+        <select formControlName="gender" id="gender">
+            <option value>Select Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <!-- Add more gender options as needed -->
+        </select>
+    </div>
+    <button type="submit">Register</button>
+</form>
+<div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
+<div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
